@@ -2,7 +2,7 @@ streamlit
 pandas
 openai
 sqlalchemy
-sqlite3 
+db-sqlite3 
 plotly
 requests
 langchain
