@@ -1,6 +1,4 @@
 import streamlit as st
-import openai
-import sqlglot
 from sqlglot import transpile
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
