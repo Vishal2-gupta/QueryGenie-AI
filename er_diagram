@@ -1,0 +1,12 @@
+digraph {
+	dpi=300
+	api_data [fillcolor=lightblue shape=box style=filled]
+	userId [fillcolor=lightgray shape=ellipse style=filled]
+	api_data -> userId [label=int64]
+	id [fillcolor=lightgray shape=ellipse style=filled]
+	api_data -> id [label=int64]
+	title [fillcolor=lightgray shape=ellipse style=filled]
+	api_data -> title [label=object]
+	body [fillcolor=lightgray shape=ellipse style=filled]
+	api_data -> body [label=object]
+}

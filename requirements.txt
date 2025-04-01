@@ -1,0 +1,12 @@
+streamlit
+pandas
+openai
+sqlalchemy
+sqlite3 
+plotly
+requests
+langchain
+langchain-openai
+langchain-community
+langgraph
+google-cloud-bigquery
