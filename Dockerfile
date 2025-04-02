@@ -10,8 +10,5 @@ COPY . /app
 # Install dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Expose the port Streamlit will run on
-EXPOSE 8080
+CMD streamlit run homepage.py --server.port=$PORT --server.address=0.0.0.0
 
-# Run the Streamlit app
-CMD streamlit run homepage.py --server.port=8051 --server.address=0.0.0.0
