@@ -1,4 +1,5 @@
-runtime: python39 # Using Python 3.12
+runtime: python39  # Using Python 3.9 (GAE standard environment supports up to Python 3.9)
+
 entrypoint: streamlit run homepage.py --server.port=$PORT --server.address=0.0.0.0
 
 instance_class: F2  # Adjust based on your needs
@@ -11,6 +12,3 @@ automatic_scaling:
 env_variables:
   STREAMLIT_ENV: "production"
 
-handlers:
-- url: /.*
-  secure: always
