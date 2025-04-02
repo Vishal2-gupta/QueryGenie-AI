@@ -1,6 +1,6 @@
 runtime: custom  # Use custom runtime since Python 3.12 is not natively supported
 env: flex
-entrypoint: streamlit run homepage.py --server.port=8080 --server.address=0.0.0.0
+entrypoint: streamlit run homepage.py --server.port=8051 --server.address=0.0.0.0
 
 env_variables:
   CLOUD_STORAGE_BUCKET: qwiklabs-gcp-01-d6d5efe1b75e
