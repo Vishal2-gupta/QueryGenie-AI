@@ -17,3 +17,4 @@ base64
 subprocess
 pyperclip
 sqlglot
+streamlit-extras
