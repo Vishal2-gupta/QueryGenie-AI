@@ -8,7 +8,6 @@ st.set_page_config(page_title="QueryGenie - AI SQL Assistant", layout="wide")
 st.markdown("""
     <style>
         body {
-       
             background-color: #f4f7fa;
             font-family: 'Arial', sans-serif;
         }
@@ -26,17 +25,7 @@ st.markdown("""
             text-align: center;
             margin-bottom: 20px;
         }
-        .agent-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-        }
-        .agent-card:hover {
-            transform: scale(1.05);
-        }
+
         .icon {
             font-size: 50px;
             color: #4CAF50;
@@ -57,12 +46,30 @@ st.markdown("""
         .cta-button:hover {
             background-color: #45a049;
         }
+        
+        /* Sidebar Styling */
+        section[data-testid="stSidebar"] {
+            background-color: #87CEEB !important; /* Sky Blue */
+        }
+        .sidebar-title {
+            color: black !important;
+            font-size: 22px !important; /* Slightly bigger */
+            font-weight: bold !important;
+            text-align: left !important; /* Align to left */
+            padding-left: 10px !important; /* Add some spacing */
+        }
     </style>
 """, unsafe_allow_html=True)
 
 # Sidebar Navigation
-st.sidebar.title("Navigation")
+st.sidebar.markdown('<p class="sidebar-title">🏢 About Us</p>', unsafe_allow_html=True)
 page = st.sidebar.radio("Go to", ["About QueryGenie", "Run QueryGenie Agent"])
+
+
+# Sidebar Navigation
+# st.sidebar.markdown('<h2 class="sidebar-title">🏢 About Us</h2>', unsafe_allow_html=True)
+# page = st.sidebar.radio("Go to", ["About QueryGenie", "Run QueryGenie Agent"], key="sidebar_radio")
+
 
 if page == "About QueryGenie":
     st.title("About QueryGenie - AI SQL Assistant")
@@ -108,11 +115,13 @@ if page == "About QueryGenie":
 
 elif page == "Run QueryGenie Agent":
     st.title("SQL Query MultiAgent")
+    st.markdown("<hr style='border: 2px solid #007BFF; margin: 10px 0;'>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
    # First row - 3 agents
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
+       
         st.markdown('<div style="font-size:32px;">🛢️</div>', unsafe_allow_html=True)  
         st.subheader("API Agent")  
         st.write("Handles API-based and uploaded dataset SQL queries efficiently.")  
@@ -121,7 +130,7 @@ elif page == "Run QueryGenie Agent":
         st.markdown("</div>", unsafe_allow_html=True)
 
     with col2:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
+      
         st.markdown('<div style="font-size:32px;">📂</div>', unsafe_allow_html=True) 
         st.subheader("MultiTable Agent")
         st.write("Works with multiple tables for complex queries efficiently.")
@@ -130,7 +139,7 @@ elif page == "Run QueryGenie Agent":
         st.markdown("</div>", unsafe_allow_html=True)
 
     with col3:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
+  
         st.markdown('<div style="font-size:32px;">🧠</div>', unsafe_allow_html=True) 
         st.subheader("Query Translator Agent")
         st.write("Easily translate SQL queries across multiple database dialects.")
@@ -143,8 +152,8 @@ elif page == "Run QueryGenie Agent":
 
     col4, col5, col6 = st.columns(3)
     with col4:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
-        st.markdown('<div style="font-size:32px;">☁️</div>', unsafe_allow_html=True) 
+     
+        st.markdown('<div style="font-size:32px; font-weight:bold;">☁️ GCP</div>', unsafe_allow_html=True) 
         st.subheader("BigQuery Agent")
         st.write("Optimized for Google BigQuery dataset queries efficiently.")
         if st.button("Run BigQuery Agent"):
@@ -154,8 +163,8 @@ elif page == "Run QueryGenie Agent":
   
 
     with col5:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
-        st.markdown('<div style="font-size:32px;">🔷</div>', unsafe_allow_html=True)  
+    
+        st.markdown('<div style="font-size:32px; font-weight:bold;">🔷 Azure</div>', unsafe_allow_html=True)
         st.subheader("Azure Cosmos DB Agent")  
         st.write("Handles NoSQL queries efficiently using Azure Cosmos DB.")  
         if st.button("Run Azure Cosmos DB Agent"):
@@ -163,53 +172,10 @@ elif page == "Run QueryGenie Agent":
         st.markdown("</div>", unsafe_allow_html=True)
 
     with col6:
-        st.markdown('<div class="agent-card">', unsafe_allow_html=True)
-        st.markdown('<div style="font-size:32px;">🟧</div>', unsafe_allow_html=True)  
+     
+        st.markdown('<div style="font-size:32px; font-weight:bold;">🔶 AWS </div>', unsafe_allow_html=True)  
         st.subheader("AWS Redshift Agent")  
         st.write("Processes large-scale SQL queries using AWS Redshift efficiently.")  
         if st.button("Run AWS Redshift Agent"):
             subprocess.run(["streamlit", "run", "awsredshift.py"])
         st.markdown("</div>", unsafe_allow_html=True)
-
-
-
-
-# # First row
-# st.markdown('<div style="font-size:32px;">🛢️</div>', unsafe_allow_html=True)
-# st.subheader("API Agent")
-# st.write("Handles API-based and uploaded dataset SQL queries efficiently.")
-# if st.button("Run API Agent"):
-#     subprocess.run(["streamlit", "run", "api.py"])
-# st.markdown("---")
-
-# # Second row
-# st.markdown('<div style="font-size:32px;">📂</div>', unsafe_allow_html=True)
-# st.subheader("MultiTable Agent")
-# st.write("Works with multiple tables for complex queries efficiently.")
-# if st.button("Run MultiTable Agent"):
-#     subprocess.run(["streamlit", "run", "multitable.py"])
-# st.markdown("---")
-
-# # Third row
-# st.markdown('<div style="font-size:32px;">☁️</div>', unsafe_allow_html=True)
-# st.subheader("BigQuery Agent")
-# st.write("Optimized for Google BigQuery dataset queries efficiently.")
-# if st.button("Run BigQuery Agent"):
-#     subprocess.run(["streamlit", "run", "bigquery.py"])
-# st.markdown("---")
-
-# # Fourth row
-# st.markdown('<div style="font-size:32px;">🔷</div>', unsafe_allow_html=True)
-# st.subheader("Azure Cosmos DB Agent")
-# st.write("Handles NoSQL queries efficiently using Azure Cosmos DB.")
-# if st.button("Run Azure Cosmos DB Agent"):
-#     subprocess.run(["streamlit", "run", "azurecosmo.py"])
-# st.markdown("---")
-
-# # Fifth row
-# st.markdown('<div style="font-size:32px;">🛢️</div>', unsafe_allow_html=True)
-# st.subheader("AWS Redshift Agent")
-# st.write("Processes large-scale SQL queries using AWS Redshift efficiently.")
-# if st.button("Run AWS Redshift Agent"):
-#     subprocess.run(["streamlit", "run", "awsredshift.py"])
-# st.markdown("---")
